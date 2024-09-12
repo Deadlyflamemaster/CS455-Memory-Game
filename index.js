@@ -21,8 +21,8 @@ fetch("./cards.json")
 
 function randomizeCards() {
   let remainingCards = gameCards.length,
-      randomIndex,
-      tempValue;
+    randomIndex,
+    tempValue;
 
   while (remainingCards > 0) {
     randomIndex = Math.floor(Math.random() * remainingCards);
@@ -105,7 +105,7 @@ function checkForGameEnd() {
   if (matchedPairs === gameCards.length / 2) {
     setTimeout(() => {
       alert("Congratulations! You've matched all the cards!");
-      restartGame();
+      restart();
     }, 500);
   }
 }
@@ -118,7 +118,7 @@ function restart() {
   currentScore = 0;
   updateScores();
   const cards = document.querySelectorAll(".card");
-  cards.forEach(card => card.remove());
+  cards.forEach((card) => card.remove());
   randomizeCards();
   createCards();
 }
